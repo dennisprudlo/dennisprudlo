@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,3 +13,5 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::fallback([ Controller::class, 'handle' ]);
