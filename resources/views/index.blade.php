@@ -65,7 +65,7 @@
             </x-section>
 
             {{-- Timeline --}}
-            <x-section title="work">
+            <x-section title="Work">
                 <x-project
                     title="roublez"
                     description="An expenditure tracking software as a service for managing budgets, tracking expenses and overviewing capital investments."
