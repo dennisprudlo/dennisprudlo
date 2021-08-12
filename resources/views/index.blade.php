@@ -41,7 +41,7 @@
             {{-- Heading --}}
             <x-section class="md:mt-6">
                 <x-slot name="title">
-                    <img src="{{ asset('img/avatar.jpg') }}" class="md:ml-auto object-cover w-32 h-32 md:w-48 md:h-48 bg-red-400 rounded-full" alt="Dennis Prudlo" />
+                    <img src="{{ asset('img/avatar.jpg') }}" class="md:ml-auto object-cover w-32 h-32 md:w-48 md:h-48 rounded-full" alt="Dennis Prudlo" />
                 </x-slot>
 
                 <strong class="text-3xl text-black">{{ $title }}</strong>
