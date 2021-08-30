@@ -36,10 +36,10 @@
     </head>
     <body class="bg-gray-100 text-gray-600">
 
-        <main class="max-w-4xl mx-auto px-5 py-8 sm:px-8 md:px-12 md:py-20 space-y-8 md:space-y-12">
+        <main class="max-w-4xl mx-auto px-5 py-8 sm:px-8 md:px-12 md:py-20 space-y-12 md:space-y-16">
 
             {{-- Heading --}}
-            <x-section class="md:mt-6">
+            <x-section class="mt-2 md:mt-6">
                 <x-slot name="title">
                     <img src="{{ asset('img/avatar.jpg') }}" class="md:ml-auto object-cover w-32 h-32 md:w-48 md:h-48 rounded-full" alt="Dennis Prudlo" />
                 </x-slot>
@@ -51,7 +51,7 @@
                     While developing websites, I found out that the overall design and usability is of great importance to me.
                     Turns out, I am a UI/UX enthusiast. User experience is the name of the game!
                 </p>
-                <div class="inline-block space-x-3 text-gray-400">
+                <div class="inline-block space-x-3 text-gray-400 text-xl">
                     <a href="https://github.com/dennisprudlo" class="hover:text-[#333333] focus:text-[#333333] transition-colors">
                         <i class="fab fa-github"></i>
                     </a>
@@ -64,18 +64,36 @@
                 </div>
             </x-section>
 
-            {{-- Timeline --}}
+            {{-- Work --}}
             <x-section title="Work">
-                <x-project
-                    title="roublez"
-                    description="An expenditure tracking software as a service for managing budgets, tracking expenses and overviewing capital investments."
-                    href="https://staging.roublez.com" />
-                <x-project
-                    title="writeaguide"
-                    description="Lead developer at writeaguide – a knowledge management platform combining knowledge base, learning management and help centers."
-                    href="https://writeaguide.com" />
+                @foreach ($work as $name => $details)
+                    <x-timeline-item
+                        title="{{ $name }}"
+                        href="{{ $details->url }}"
+                        :tags="$details->tags"
+                        title-classes="{{ $details->text }}"
+                        tag-classes="{{ $details->text }} {{ $details->background }}">
+
+                        <x-slot name="description">
+                            {{ $description }}
+                        </x-slot>
+                    </x-timeline-item>
+                @endforeach
             </x-section>
 
+            {{-- Education --}}
+            <x-section title="Education">
+
+                {{-- University --}}
+                <x-timeline-item title="BSc in Business Computing">
+                    <x-slot name="subtitle">
+                        at Hochschule für Technik und Wirtschaft Berlin
+                    </x-slot>
+                    <x-slot name="description" class="italic">
+                        &quot;Software development and design of information systems for business and administration as well as the transfer of profound knowledge in economics are the main focus of the of the application-oriented training.&quot;
+                    </x-slot>
+                </x-timeline-item>
+            </x-section>
         </main>
     </body>
 </html>
