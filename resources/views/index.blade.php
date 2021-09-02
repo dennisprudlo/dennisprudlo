@@ -34,55 +34,68 @@
 
         <link rel="stylesheet" href="{{ mix('css/app.min.css') }}">
     </head>
-    <body class="bg-gray-100 text-gray-600">
-
+    <body class="bg-gray-100 text-gray-600 dark:bg-gray-900 dark:text-gray-300">
         <main class="max-w-4xl mx-auto px-5 py-8 sm:px-8 md:px-12 md:py-20 space-y-12 md:space-y-16">
 
             {{-- Heading --}}
             <x-section class="mt-2 md:mt-6">
-                <x-slot name="title">
+                <x-slot name="title" class="!opacity-100">
                     <img src="{{ asset('img/avatar.jpg') }}" class="md:ml-auto object-cover w-32 h-32 md:w-48 md:h-48 rounded-full" alt="Dennis Prudlo" />
                 </x-slot>
 
-                <strong class="text-3xl text-black">{{ $title }}</strong>
-                <p>{{ $description }}</p>
-
-                <p>
+                <strong class="text-3xl text-gray-900 dark:text-gray-50">{{ $title }}</strong>
+                <p class="font-normal">{{ $description }}</p>
+                <p class="font-normal">
                     While developing websites, I found out that the overall design and usability is of great importance to me.
                     Turns out, I am a UI/UX enthusiast. User experience is the name of the game!
                 </p>
-                <div class="inline-block space-x-3 text-gray-400 text-xl">
-                    <a href="https://github.com/dennisprudlo" class="hover:text-[#333333] focus:text-[#333333] transition-colors">
+                <div class="inline-block space-x-3 text-gray-400 dark:text-gray-500 text-xl">
+                    <a href="https://github.com/dennisprudlo" class="hover:text-brand-github focus:text-brand-github dark:hover:text-gray-50 dark:focus:text-gray-50 transition-colors">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://instagram.com/dennisprudlo" class="hover:text-[#E1306C] focus:text-[#E1306C] transition-colors">
+                    <a href="https://instagram.com/dennisprudlo" class="hover:text-brand-instagram focus:text-brand-instagram transition-colors">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://twitter.com/dennisprudlo" class="hover:text-[#1DA1F2] focus:text-[#1DA1F2] transition-colors">
+                    <a href="https://twitter.com/dennisprudlo" class="hover:text-brand-twitter focus:text-brand-twitter transition-colors">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
             </x-section>
 
             {{-- Work --}}
-            <x-section title="Work">
-                @foreach ($work as $name => $details)
-                    <x-timeline-item
-                        title="{{ $name }}"
-                        href="{{ $details->url }}"
-                        :tags="$details->tags"
-                        title-classes="{{ $details->text }}"
-                        tag-classes="{{ $details->text }} {{ $details->background }}">
+            <x-section>
+                <x-slot name="title">Work</x-slot>
 
-                        <x-slot name="description">
-                            {{ $description }}
-                        </x-slot>
-                    </x-timeline-item>
-                @endforeach
+                {{-- roublez --}}
+                <x-timeline-item href="https://staging.roublez.com">
+                    <x-slot name="title" class="group-hover:text-brand-roublez">
+                        roublez
+                    </x-slot>
+                    <x-slot name="description">
+                        Building an expenditure tracking software as a service for managing budgets, tracking expenses and overviewing capital investments.
+                    </x-slot>
+                    <x-slot name="tags" class="group-hover:text-brand-roublez group-hover:bg-brand-roublez">
+                        laravel,livewire,tailwind,alpine,typescript,chartjs
+                    </x-slot>
+                </x-timeline-item>
+
+                {{-- writeaguide --}}
+                <x-timeline-item href="https://writeaguide.com">
+                    <x-slot name="title" class="group-hover:text-brand-writeaguide">
+                        writeaguide
+                    </x-slot>
+                    <x-slot name="description">
+                        Lead developer at writeaguide – a knowledge management platform combining knowledge base, learning management and help centers.
+                    </x-slot>
+                    <x-slot name="tags" class="group-hover:text-brand-writeaguide group-hover:bg-brand-writeaguide">
+                        laravel,livewire,tailwind,alpine
+                    </x-slot>
+                </x-timeline-item>
             </x-section>
 
             {{-- Education --}}
-            <x-section title="Education">
+            <x-section>
+                <x-slot name="title">Education</x-slot>
 
                 {{-- University --}}
                 <x-timeline-item title="BSc in Business Computing">
