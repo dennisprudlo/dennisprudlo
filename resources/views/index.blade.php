@@ -67,7 +67,7 @@
                 <x-slot name="title">Work</x-slot>
 
                 {{-- roublez --}}
-                <x-timeline-item href="https://staging.roublez.com">
+                <x-timeline-item href="https://roublez.com">
                     <x-slot name="title" class="group-hover:text-brand-roublez">
                         roublez
                     </x-slot>
