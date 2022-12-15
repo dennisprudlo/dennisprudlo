@@ -30,4 +30,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'pirsch' => [
+        'id' => env('PIRSCH_CLIENT_ID'),
+        'secret' => env('PIRSCH_CLIENT_SECRET'),
+    ],
 ];
