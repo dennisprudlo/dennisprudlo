@@ -5,7 +5,8 @@
     "keywords": [ "dennisprudlo", "personal", "website" ],
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.5",
         "laravel/framework": "^9.10",
         "laravel/tinker": "^2.5"
     },
